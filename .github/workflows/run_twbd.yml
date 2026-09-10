@@ -3,7 +3,7 @@ name: Run TWBD Stock Screener
 on:
   workflow_dispatch: # 支援網頁手動觸發
   # schedule:
-  #   - cron: '10 5 * * 1-5' # 若要自動定時執行，可把前兩行的 # 拿掉 (台北時間 13:10)
+  #   - cron: '15 5 * * 1-5' # 台北時間週一至週五 13:15 (UTC 05:15)
 
 jobs:
   run-screener:
