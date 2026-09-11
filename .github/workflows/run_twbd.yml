@@ -1,9 +1,9 @@
-name: Run TWBD Stock Screener
+name: Run TW Stock Screener
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # 保留網頁手動觸發按鈕
   schedule:
-    - cron: '10 5 * * 1-5' # 台北時間週一至週五 13:10 (UTC 05:10)
+    - cron: '10 5 * * 1-5' # 台北時間 13:10 (UTC 05:10)
 
 jobs:
   run-screener:
@@ -11,19 +11,18 @@ jobs:
 
     steps:
       - name: 檢出專案程式碼
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: 設定 Python 環境
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-          cache: 'pip'
 
       - name: 安裝依賴套件
         run: |
           python -m pip install --upgrade pip
           pip install pandas numpy requests urllib3 yfinance
 
-      - name: 執行 TWBD 選股腳本
+      - name: 執行選股腳本
         run: |
           python twbd.py
