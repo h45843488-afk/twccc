@@ -11,12 +11,13 @@ jobs:
 
     steps:
       - name: 檢出專案程式碼
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 設定 Python 環境
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          cache: 'pip' # 開啟套件快取，省去每次重新下載的時間
 
       - name: 安裝依賴套件
         run: |
