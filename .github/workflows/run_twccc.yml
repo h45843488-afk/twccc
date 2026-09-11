@@ -3,7 +3,7 @@ name: Run TW Stock Screener
 on:
   workflow_dispatch: # 保留網頁手動觸發按鈕
   schedule:
-    - cron: '10 5 * * 1-5' # 台北時間 13:10 (UTC 05:10)
+    
 
 jobs:
   run-screener:
